@@ -13,12 +13,10 @@ public class GameManager {
             return incompleteGame;
         } else {
             Game tmp = incompleteGame;  //polozili i za setili 2-ogo polzovatelja
-            incompleteGame.setPlayer2(user);
+
+            tmp.setPlayer2(user);
             incompleteGame = null;
-            return incompleteGame;
+            return tmp;
         }
     }
-
-
-
 }

@@ -13,7 +13,7 @@ public class RegistrationServlet extends javax.servlet.http.HttpServlet {
     private MyGame myGame;
     @Inject
     private ErrorHolder errorholder;
-//    private String hello dlja licnostji
+    //    private String hello dlja licnostji
     @Inject
     private GameManager gameManager;
 
@@ -28,12 +28,20 @@ public class RegistrationServlet extends javax.servlet.http.HttpServlet {
         User user = new User();
         user.setName(un);
         myGame.setUser(user);
-        Game game = gameManager.setupGame(user);
+
+        Game game = gameManager.setupGame(user); // polucili igru
+        myGame.setGame(game);
+        if (game.iscompleted()) {
+            response.sendRedirect("/battleship/shipPlacces");
+        } else {
+            response.sendRedirect("/battleship/waitregistration");
+        }
         response.sendRedirect("/battleship/waitregistration");
         //otprovljame
 
     }
-//my game v servere licnij
+
+    //my game v servere licnij
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/pages/registration.jsp")
                 .include(request, response);

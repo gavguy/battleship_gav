@@ -4,6 +4,11 @@ public class Game {
     private User player1;
     private User player2;
 
+    public boolean iscompleted() {
+        return player1 != null && player2 != null;
+
+    }
+
     public User getPlayer1() {
         return player1;
     }
