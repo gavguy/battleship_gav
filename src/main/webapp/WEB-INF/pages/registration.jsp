@@ -15,7 +15,10 @@
         <label for="Username"> Enter you name </label>
         <input id="Username"
                type="text "
-               name="Username">
+               name="Username"
+                <%--required>--%>>
+               ${errorholder.message}
+               <%--$(errorholder.message)--%>
         <br>
         <style>
             button {
