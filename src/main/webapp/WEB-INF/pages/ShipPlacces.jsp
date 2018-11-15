@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: java_tsi08
@@ -12,11 +13,27 @@
 </head>
 <body>
 <style>
-    body {        background-color:	#00BFFF;    }
+    body {
+        background-color: #00BFFF;
+    }
 </style>
 
-
-
+<table>
+    <tr>
+        <td>&nbsp;</td>
+        <c:forEach items="A, B, C, D, E, F, G, H, I, J," var="col">
+        <td>${col}</td>
+        </c:forEach>
+    </tr>
+    <c:forEach begin="1" end="10" var="row">
+    <tr>
+        <td>${row}</td>
+        <c:forEach items="A, B, C, D, E, F, G, H, I, J," var="col">
+            <td><input type="checkbox"> </td>
+        </c:forEach>
+    </tr>
+    </c:forEach>
+</table>
 
 
 </body>
