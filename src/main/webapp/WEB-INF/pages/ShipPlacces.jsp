@@ -17,7 +17,9 @@
         background-color: #00BFFF;
     }
 </style>
-<form>
+${errorHolder.message};
+
+<form method="post" action="shipPlacces">
     <table>
         <tr>
             <td>&nbsp;</td>
@@ -29,7 +31,13 @@
             <tr>
                 <td>${row}</td>
                 <c:forEach items="A, B, C, D, E, F, G, H, I, J," var="col">
-                    <td><input type="checkbox" name="cell" value="${col}${row}"></td>
+                    <td>
+                        <c:set var="addr" value="$(col)$(row)"/>
+                        <input type="checkbox"
+                               name="cell"
+                               value="$(col)(row)"
+                               <c:if test="${tempShipsHolder.ships[addr]}">checked</c:if>>
+                    </td>
                 </c:forEach>
             </tr>
         </c:forEach>
